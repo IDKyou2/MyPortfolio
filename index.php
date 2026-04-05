@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+     <link href="css/styles.css" rel="stylesheet">
     <style>
         body,
         h1,
@@ -61,17 +62,51 @@
     <!-- Page Content -->
     <div class="w3-padding-large" id="main">
         <!-- Header/Home -->
-        <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
-            <h1 class="w3-jumbo"><span class="w3-hide-small">I'm</span> Mark Justin Terce.</h1>
-            <p>Full Stack Developer.</p>
-            <img src="images/ME.JPEG" alt="me" class="w3-image" width="250" height="250" style="border-radius: 50%;">
-        </header>
+
+    <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+    <h1 class="w3-jumbo"><span class="w3-hide-small">I'm</span> Mark Justin Terce.</h1>
+    <p>Aspriing Software Developer.</p>
+
+    <!-- Image -->
+    <img id="slider" src="images/me/ME1.png" 
+         style="width:250px; height:250px; border-radius:50%; transition: opacity 0.3s;">
+
+    <br><br>
+
+    <!-- Next Button -->
+    <button onclick="nextImage()">View next ❯</button>
+    </header>
+
+    <!-- SCRIPT FOR NEXT BUTTON -->
+        <script>
+        const images = [
+            "images/me/ME1.png",
+            "images/me/ME2.png",
+            "images/me/ME3.JPEG"
+        ];
+
+        let index = 0;
+
+        function nextImage() {
+            const img = document.getElementById("slider");
+
+            img.style.opacity = 0; // fade out
+
+            setTimeout(() => {
+                index = (index + 1) % images.length;
+                img.src = images[index];
+                img.style.opacity = 1; // fade in
+            }, 200);
+        }
+        </script>
+       
+     
 
         <!-- About Section -->
         <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
             <h2 class="w3-text-light-grey">About Me</h2>
             <hr style="width:200px" class="w3-opacity">
-            <p>Hi! My name is Mark. A fourth year BSIT student from the University of Mindanao. Aspiring IT
+            <p>Hi! My name is Mark. A recent BSIT graduate from the University of Mindanao - Matina Campus. Aspiring IT
                 professional
                 with a strong foundation in software development, web technologies, and problem-solving skills.
                 Passionate
@@ -114,7 +149,10 @@
             -->
 
        
-            <button type="button" class="btn btn-outline-secondary"><i class="fa fa-download"></i> Download Resume</button>
+            <a href="files/Mark_Justin_Terce_Resume.pdf" download class="btn btn-outline-secondary">
+                <i class="fa fa-download"></i> Download Resume
+            </a>
+            <!-- <button type="button" class="btn btn-outline-secondary"><i class="fa fa-download"></i> Download CV</button> -->
 
             <!-- Grid for pricing tables
             <h3 class="w3-padding-16 w3-text-light-grey">My Price</h3>
@@ -176,7 +214,7 @@
             <!-- Grid for photos -->
             <div class="w3-row-padding" style="margin:0 -16px">
                 <div class="w3-half">
-                    <img src="/w3images/rocks.jpg" style="width:100%">
+                    <img src="images\sample-projects\backstage-cafe\1.png" style="width:100%">
                     <img src="/w3images/sailboat.jpg" style="width:100%">
                 </div>
 
